@@ -65,7 +65,7 @@ function handleError(error) {
     if(error.response.status === 403){
         alertMsg('ليس لديك صلاحية للدخول', 'danger')
         return;
-    }
+    }else{
     switch (error.code) {
         case 'ECONNABORTED':
             alertMsg('Request timeout', 'danger')
@@ -83,6 +83,7 @@ function handleError(error) {
             alertMsg(error.message, 'danger')
             break;
     }
+}
 }
 
 /** Function to send GET requist */
