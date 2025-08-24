@@ -1,0 +1,21 @@
+{
+  "name": "alwafra-front",
+  "description": "",
+  "main": "bowerrc",
+  "authors": [
+    "SaifAleslam98 <saifhassn94@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/SaifAleslam98/Alwafra-Front",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^5.3.7"
+  }
+}

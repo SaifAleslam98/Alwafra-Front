@@ -1,0 +1,65 @@
+.c-passport{
+    width: 90%;
+    border: 2px solid #ddd;
+
+}
+
+.c-image{
+    width: 40%;
+    border-radius: 20%;
+    border: 2px solid #ddd;
+}
+
+.table td {
+font-size: 12px;
+}
+
+/* Modal background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Max width for larger screens */
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+.modal-content .modal-title {
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.modal-content label {
+    text-align: right;
+    font-size: 12px;
+
+}
+/* Close button */
+.close-button {
+    color: #aaa;
+    float: left;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+}

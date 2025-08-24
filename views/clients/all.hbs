@@ -1,0 +1,76 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">تصنيف التأشيرات</h4>
+                        <div class="row">
+                            <div class="col-md-2 ">
+                                <div class="form-group">
+                                    <label for="visaFilterOption">التصنيف</label>
+                                    <select name="visaFilterOption" id="" class="form-control">
+                                        <option value="all">المستخرجة حديثاً</option>
+                                        <option value="today">على وشك الإنتهاء</option>
+                                        <option value="last7days">تعديل وضع ومستحق إرجاع تأمين</option>
+                                        <option value="last30days">منتهية الصلاحية (مخالفين)</option>
+                                        <option value="all">المغادرين</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2 ">
+                                <div class="form-group">
+                                    <label for="visaFilterOption">الفترة الزمنية</label>
+                                    <select name="visaFilterOption" id="" class="form-control">
+                                        <option value="all">الجميع</option>
+                                        <option value="today">اليوم</option>
+                                        <option value="last7days">آخر 7 أيام</option>
+                                        <option value="last30days">آخر 30 يومًا</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="filter-button">.</label>
+                                    <button type="button" class="btn btn-white btn-fill form-control"
+                                        id="filter-button">تصنيف</button>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2 pull-left">
+                                <div class="form-group">
+                                    <label for="filter-button">.</label>
+                                    <a href="/clients/new/client" class="btn btn-success btn-fill form-control">إضافة جديدة</a>
+                                    
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover ">
+                            <thead>
+                                <th>#</th>
+                                <th>رقم الجواز</th>
+                                <th>الاسم بالعربي</th>
+                                <th>الإسم بالإنجليزي</th>
+                                <th>نوع التأشيرة</th>
+                                <th>تاريخ الإصدار</th>
+                                <th>تاريخ الإنتهاء</th>
+                                <th>زمن الدخول</th>
+
+                            </thead>
+                            <tbody id="clients-table-body">
+                             
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/api-functions/clients.js"></script>

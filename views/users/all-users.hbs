@@ -1,0 +1,129 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="header">
+                        <b class="h4">المستخدمين</b>
+                        <button type="button" class="btn btn-info btn-fill pull-left"
+                            onclick="openModal('newUserModal')">مستخدم جديد</button>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover ">
+                            <thead>
+                                <th>#</th>
+                                <th>اسم المستخدم</th>
+                                <th>البريد الإلكتروني</th>
+                                <th>رقم الهاتف</th>
+                                <th>الصلاحية</th>
+                                <th>نشط</th>
+                                <th></th>
+                            </thead>
+                            <tbody id="users-table-body">
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="updateUserModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">تعديل المستخدم</div>
+                <input type="hidden" name="user-id" id="user-id" value="">
+                <form>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="">الصلاحية</label>
+                                <select name="role" id="user-role" class="form-control">
+
+                                    <option value="user">يوزر</option>
+                                    <option value="accountant">محاسب</option>
+                                    <option value="admin">أدمن</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>النشاط</label>
+                                <select name="active" id="user-isActive" class="form-control">
+                                    <option value="true">نشط</option>
+                                    <option value="false">غير نشط</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success btn-fill" id="update-user-button">تعديل</button>
+
+                    <button type="button" id="closeModalContentBtn" class="btn btn-danger btn-fill"
+                        onclick="closeModal('updateUserModal');">إغلاق</button>
+                </form>
+
+            </div>
+        </div>
+
+        <div id="newUserModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">إضافة مستخدم</div>
+                <form>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="newUserName">اسم المستخدم</label>
+                                <input type="text" id="newUserName" class="form-control" placeholder="يوزر">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="newUserEmail">البريد الإلكتروني</label>
+                                <input type="email" id="newUserEmail" class="form-control" placeholder="ایمیل">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="newUserPhone">رقم الهاتف</label>
+                                <input type="text" id="newUserPhone" class="form-control" placeholder="الهاتف">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="newUserPassword">كلمة المرور</label>
+                                <input type="password" id="newUserPassword" class="form-control" placeholder="باسسويرد">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="">الصلاحية</label>
+                                <select name="role" id="newUserRole" class="form-control">
+
+                                    <option value="user">يوزر</option>
+                                    <option value="accountant">محاسب</option>
+                                    <option value="admin">أدمن</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success btn-fill" id="new-user-button">تعديل</button>
+
+                    <button type="button" id="closeModalContentBtn" class="btn btn-danger btn-fill"
+                        onclick="closeModal('newUserModal');">إغلاق</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/api-functions/users.js"></script>
