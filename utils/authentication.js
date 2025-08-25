@@ -5,7 +5,7 @@ async function isAuthorized(req, res, next) {
         return res.redirect('/');
     }
     else {
-        const verifyUrl = `${process.env.API_URL}/api/v1/auth/verify`;
+        const verifyUrl = `${process.env.API_URL}/auth/verify`;
         const header = {
             'Authorization': `Bearer ${token}`
         };
