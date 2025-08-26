@@ -61,7 +61,9 @@ $('#update-client').on('click', async function updateClient(event) {
     dataObject.visa_amount_currency = 'AED';
     dataObject.visa_created_date = $('#visa_created_date').val();
     dataObject.visa_finished_date = $('#visa_finished_date').val();
-    dataObject.client_enterance_date = $('#client_enterance_date').val();
+    if($('#client_enterance_date').val()){
+        dataObject.client_enterance_date = $('#client_enterance_date').val();
+    }
     try {
         const response = await sendPatchRequest(`client/${id}`, dataObject, authorizedHeader);
         if (response) {

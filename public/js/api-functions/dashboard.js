@@ -6,6 +6,7 @@ $(window).on('load', async function () {
             $('#sumOfVisas').text(clients.result + ' تأشيرة');
             $('#clientsMoneySum').text(parseFloat(clients.clientsMoneySum) + ' درهم');
             $('#ClientsInsuranceSum').text(clients.clientsInsuranceSum + ' درهم');
+            $('#ClientsRefunSum').text(clients.refundSum + ' درهم');
             const clientsDocs = clients.data;
 
             const tableBody = document.getElementById('clients-table-body');
