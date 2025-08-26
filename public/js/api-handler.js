@@ -2,7 +2,7 @@
  * http://localhost:3000/api/v1
  https://alwafra-api.onrender.com
 */
-const Api_URL = 'https://alwafra-api.onrender.com/api/v1';
+const Api_URL = 'http://localhost:3000/api/v1';
 
 //axios.defaults.timeout = 15000;
 function newAbortSignal(timeoutMs) {
@@ -13,6 +13,11 @@ function newAbortSignal(timeoutMs) {
 // Header with Token
 const authorizedHeader = {
     'Authorization': `Bearer ${JSON.parse(getCookie('token'))}`
+}
+// Header with Token
+const multiPartAuthorizedHeader = {
+    'Authorization': `Bearer ${JSON.parse(getCookie('token'))}`,
+    'Content-Type': 'multipart/form-data'
 }
 
 
@@ -43,7 +48,7 @@ function getCookie(cname) {
 
 /** Alert Message Function */
 function alertMsg(msg, type) {
-    
+
 
     $.notify({
         icon: 'pe-7s-mail',
@@ -62,28 +67,24 @@ function alertMsg(msg, type) {
 
 //Handle Error Function
 function handleError(error) {
-    if(error.response.status === 403){
-        alertMsg('ليس لديك صلاحية للدخول', 'danger')
-        return;
-    }else{
-    switch (error.code) {
-        case 'ECONNABORTED':
-            alertMsg('Request timeout', 'danger')
-            break;
-        case 'ERR_CANCELED':
-            alertMsg('Request canceled, took long time', 'danger')
-            break;
-        case 'ERR_BAD_REQUEST':
-            alertMsg(error.response.data.message, 'danger')
-            break;
-        case 'ERR_BAD_RESPONSE':
-            alertMsg(error.response.data.message, 'danger')
-            break;
-        default:
-            alertMsg(error.message, 'danger')
-            break;
-    }
-}
+        switch (error.code) {
+            case 'ECONNABORTED':
+                alertMsg('Request timeout', 'danger')
+                break;
+            case 'ERR_CANCELED':
+                alertMsg('Request canceled, took long time', 'danger')
+                break;
+            case 'ERR_BAD_REQUEST':
+                alertMsg(error.response.data.message, 'danger')
+                break;
+            case 'ERR_BAD_RESPONSE':
+                alertMsg(error.response.data.message, 'danger')
+                break;
+            default:
+                alertMsg(error.message, 'danger')
+                break;
+        }
+
 }
 
 /** Function to send GET requist */
@@ -106,11 +107,7 @@ async function sendGetRequest(url, body, header) {
 /** Function to send DELETE requist */
 async function sendDeleteRequest(url, body, header) {
     try {
-        const response = await axios.delete(`${Api_URL}/${url}`,{
-            data:body,
-            headers: header,
-            signal: newAbortSignal()
-        });
+        const response = await axios.delete(`${Api_URL}/${url}`, {headers: header,});
         const myData = response.data;
         if (response.status == 200) {
             return myData;

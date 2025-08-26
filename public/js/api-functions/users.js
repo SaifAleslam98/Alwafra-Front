@@ -35,7 +35,7 @@ $(window).on('load', async function () {
                 mybutton.disabled = true;
             }
             // Optionally, you can add a message if no clients are found
-            if (clients.length === 0) {
+            if (users.length === 0) {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td colspan="7" class="text-center">لا يوجد مستخدمين</td>

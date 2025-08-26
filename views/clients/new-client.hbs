@@ -7,7 +7,7 @@
                         <h4 class="title" id="">إضافة عميل</h4>
                     </div>
                     <div class="content">
-                        <form id="">
+                        <form id="new-client-form" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
@@ -64,29 +64,38 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>نوع التأشيرة</label>
-                                        <input type="text" class="form-control" id="visa_type">
+                                        <select name="visasOptions" id="visasOptions" class="form-control">
+                                            
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>مبلغ التأشيرة</label>
-                                        <input type="text" class="form-control" id="visa_amount">
+                                        <input type="text" class="form-control" id="visa_amount" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>العملة</label>
-                                        <input type="text" class="form-control" id="visa_amount_currency">
+                                        <input type="text" class="form-control" id="visa_amount_currency"
+                                            placeholder="درهم إماراتي" disabled>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>مبلغ التأمين</label>
-                                        <input type="text" class="form-control" id="insurance">
+                                        <input type="number" class="form-control" id="insurance" value="0">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>رقم الجواز</label>
+                                        <input type="text" class="form-control" id="passport_no">
+                                    </div>
+                                </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>تاريخ إصدار التأشيرة</label>
@@ -111,19 +120,25 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>جواز السفر</label>
-                                        <input type="file" class="form-control" id="visa_created_date">
+                                        <input type="file" class="form-control" id="client_passport">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>الصورة الفوتوغرافية</label>
-                                        <input type="file" class="form-control" id="visa_finished_date">
+                                        <input type="file" class="form-control" id="client_photograph">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>التأشيرة</label>
+                                        <input type="file" class="form-control" id="visa_file">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>الإقامة</label>
-                                        <input type="file" class="form-control" id="client_enterance_date">
+                                        <input type="file" class="form-control" id="permit">
                                     </div>
                                 </div>
 
@@ -136,7 +151,8 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>
+<script src="/js/api-functions/new-client.js"></script>

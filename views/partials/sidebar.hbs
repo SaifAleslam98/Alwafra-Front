@@ -27,7 +27,12 @@
                     <p>الملف الشخصي</p>
                 </a>
             </li>
-
+            <li id="visas">
+                <a href="/h/visas">
+                    <i class="pe-7s-user"></i>
+                    <p>أنواع التأشيرات</p>
+                </a>
+            </li>
             <li id="clients">
                 <a href="/clients">
                     <i class="pe-7s-plane"></i>
@@ -74,14 +79,19 @@
 <script>
     const urlString = document.URL; // Get the current URL
 
-// Create a new URL object
-const url = new URL(urlString);
+    // Create a new URL object
+    const url = new URL(urlString);
 
-// Get the pathname: "/about/products.html"
-const pathname = url.pathname;
+    // Get the pathname: "/about/products.html"
+    const pathname = url.pathname;
 
-// Split the pathname by "/" and get the last part
-// This gives you "products.html"
-const pathParts = pathname.split('/');
-$(`#${pathParts[1]}`).addClass('active');
+    // Split the pathname by "/" and get the last part
+    // This gives you "products.html"
+    const pathParts = pathname.split('/');
+
+    if (pathParts.length < 3) {
+        $(`#${pathParts[1]}`).addClass('active');
+    } else {
+        $(`#${pathParts[2]}`).addClass('active');
+    }
 </script>

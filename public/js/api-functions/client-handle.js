@@ -4,9 +4,10 @@ $(window).on('load', async function () {
     const id = parts[parts.length - 1];
     try {
         const response = await sendGetRequest(`client/${id}`, {}, authorizedHeader);
-        const client = response.data;
+        
         if (response) {
             const client = response.data;
+            console.log(client);
             const visa_created_date = new Date(client.visa_created_date).toISOString().slice(0, 10);
             const visa_finished_date = new Date(client.visa_finished_date).toISOString().slice(0, 10);
 
@@ -29,6 +30,8 @@ $(window).on('load', async function () {
                 const client_entrance_date = new Date(client.client_enterance_date).toISOString().slice(0, 10);
                 $('#client_enterance_date').val(client_entrance_date);
             }
+            $('#client_passport').attr('src', `${client.client_passport}`);
+            $('#client_photograph').attr('src', `${client.client_photograph}`);
 
         }
     } catch (error) {
@@ -55,7 +58,7 @@ $('#update-client').on('click', async function updateClient(event) {
     dataObject.visa_type = $('#visa_type').val();
     dataObject.visa_amount = $('#visa_amount').val();
     dataObject.insurance = $('#insurance').val();
-    dataObject.visa_amount_currency = 'EAD';
+    dataObject.visa_amount_currency = 'AED';
     dataObject.visa_created_date = $('#visa_created_date').val();
     dataObject.visa_finished_date = $('#visa_finished_date').val();
     dataObject.client_enterance_date = $('#client_enterance_date').val();
@@ -67,7 +70,6 @@ $('#update-client').on('click', async function updateClient(event) {
                 window.location.href = `/clients/${id}`;
             }, 5000);
         }
-        console.log(response);
     } catch (error) {
         handleError(error);
     }

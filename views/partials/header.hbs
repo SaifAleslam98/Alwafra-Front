@@ -16,6 +16,7 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-left">
+                {{#if userLoggedIn}}
                 <li>
                     <a href="#" id="userName">
                     </a>
@@ -25,6 +26,7 @@
                         <img alt="Brand" src="/img/default-avatar.png" width="30" height="28" class="img-circle">
                     </a>
                 </li>
+                {{/if}}
             </ul>
         </div>
     </div>

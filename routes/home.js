@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
   });
 });
 
-/* GET Dashborad. */
+/* GET Profile. */
 router.get('/profile', function (req, res, next) {
   res.render('home/profile', {
     title: 'الملف الشخصي',
@@ -22,6 +22,16 @@ router.get('/profile', function (req, res, next) {
     userLoggedIn: res.locals.userLoggedIn,
   });
 });
+
+/* GET Visas. */
+router.get('/visas', function (req, res, next) {
+  res.render('home/visas', {
+    title: 'أنواع التأشيرات',
+    userName: res.locals.userName,
+    userLoggedIn: res.locals.userLoggedIn,
+  });
+});
+
 
 
 module.exports = router;
