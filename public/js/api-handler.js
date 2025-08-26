@@ -2,7 +2,7 @@
  * http://localhost:3000/api/v1
  https://alwafra-api.onrender.com
 */
-const Api_URL = 'http://localhost:3000/api/v1';
+const Api_URL = 'https://alwafra-api.onrender.com/api/v1';
 
 //axios.defaults.timeout = 15000;
 function newAbortSignal(timeoutMs) {
