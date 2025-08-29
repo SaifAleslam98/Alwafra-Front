@@ -33,13 +33,30 @@ router.get('/visas', function (req, res, next) {
 });
 
 /* GET Insurances. */
-router.get('/insurances', function (req, res, next) {
-  res.render('home/insurance', {
-    title: 'التأمينات',
+router.get('/refunds', function (req, res, next) {
+  res.render('home/refunds', {
+    title: 'التأمينات المسترجعة',
     userName: res.locals.userName,
     userLoggedIn: res.locals.userLoggedIn,
   });
 });
 
+/* GET Insurances. */
+router.get('/refund/:id', function (req, res, next) {
+  res.render('home/refund-back', {
+    title: 'إسترجاع التأمين',
+    userName: res.locals.userName,
+    userLoggedIn: res.locals.userLoggedIn,
+  });
+});
+
+/* GET Reports. */
+router.get('/reports', function (req, res, next) {
+  res.render('home/reports', {
+    title: 'التقارير',
+    userName: res.locals.userName,
+    userLoggedIn: res.locals.userLoggedIn,
+  });
+});
 
 module.exports = router;

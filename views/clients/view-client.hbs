@@ -1,7 +1,7 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="header">
                         <h4 class="title" id="client_p"></h4>
@@ -89,6 +89,12 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
+                                        <label>مبلغ التأمين المسترجع</label>
+                                        <input type="text" class="form-control" id="refund" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
                                         <label>تاريخ إصدار التأشيرة</label>
                                         <input type="date" class="form-control" id="visa_created_date">
                                     </div>
@@ -110,25 +116,13 @@
 
                             <button type="button" class="btn btn-info btn-fill" id="update-client"
                                 onclick="">تحديث</button>
+                            <a href="" id="refund-button" class="btn btn-success btn-fill">إسترجاع مبلغ تأمين</a>
                             <div class="clearfix"></div>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-
-                <div class="card ">
-                    <div class="c-passport">
-                        <img id="client_passport" src=""
-                            alt="..." />
-                    </div>
-                </div>
-                <div class="">
-                    <img id="client_photograph" class="c-image border-gray"
-                        src="" alt="..." />
-                    </a>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>

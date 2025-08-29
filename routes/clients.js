@@ -9,7 +9,7 @@ router.use(isAuthorized);
 /* GET Clients. */
 router.get('/', function (req, res, next) {
   res.render('clients/all', {
-    title: 'التأشيرات',
+    title: 'العملاء',
     userName: res.locals.userName,
     userLoggedIn: res.locals.userLoggedIn,
   });
@@ -19,7 +19,7 @@ router.get('/', function (req, res, next) {
 /* GET Client. */
 router.get('/:id', function (req, res, next) {
   res.render('clients/view-client', {
-    title: 'التأشيرات',
+    title: 'العملاء',
     userName: res.locals.userName,
     userLoggedIn: res.locals.userLoggedIn,
   });

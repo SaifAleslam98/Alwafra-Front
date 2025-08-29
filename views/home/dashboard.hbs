@@ -4,7 +4,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="fw-l" for="filterOption">اختر الفترة:</label>
-                    <select name="filterOption" id="" class="form-control">
+                    <select name="filterOption" id="filterOption" class="form-control">
                         <option value="all">الجميع</option>
                         <option value="today">اليوم</option>
                         <option value="last7days">آخر 7 أيام</option>
@@ -69,35 +69,18 @@
                             <div class="col-md-3 ">
                                 <div class="form-group">
                                     <label for="visaFilterOption">التصنيف</label>
-                                    <select name="visaFilterOption" id="" class="form-control">
-                                        <option value="all">المستخرجة حديثاً</option>
-                                        <option value="today">على وشك الإنتهاء</option>
-                                        <option value="last7days">تعديل وضع ومستحق إرجاع تأمين</option>
-                                        <option value="last30days">منتهية الصلاحية (مخالفين)</option>
-                                        <option value="all">المغادرين</option>
+                                    <select name="visaFilterOption" id="visaFilterOption" class="form-control">
+                                        <option value="today">المستخرجة خلال اليوم</option>
+                                        <option value="last7days">المستخرجة خلال الاسبوع</option>
+                                        <option value="last30days">المستخرجة خلال الشهر</option>
+                                        <option value="finishing">على وشك الإنتهاء</option>
+                                        <option value="refunding">تعديل وضع ومستحق إرجاع تأمين</option>
+                                        <option value="finished">منتهية الصلاحية (مخالفين)</option>
+                                        <option value="out">المغادرين</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-3 ">
-                                <div class="form-group">
-                                    <label for="visaFilterOption">الفترة الزمنية</label>
-                                    <select name="visaFilterOption" id="" class="form-control">
-                                        <option value="all">الجميع</option>
-                                        <option value="today">اليوم</option>
-                                        <option value="last7days">آخر 7 أيام</option>
-                                        <option value="last30days">آخر 30 يومًا</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="filter-button">.</label>
-                                    <button type="button" class="btn btn-white btn-fill form-control"
-                                        id="filter-button">تصنيف</button>
-                                    <div class="clearfix"></div>
-                                </div>
-
-                            </div>
+                           
                         </div>
                     </div>
                     <div class="content table-responsive table-full-width">

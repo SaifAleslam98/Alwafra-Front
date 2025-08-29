@@ -7,7 +7,6 @@ $(window).on('load', async function () {
         
         if (response) {
             const client = response.data;
-            console.log(client);
             const visa_created_date = new Date(client.visa_created_date).toISOString().slice(0, 10);
             const visa_finished_date = new Date(client.visa_finished_date).toISOString().slice(0, 10);
 
@@ -24,14 +23,14 @@ $(window).on('load', async function () {
             $('#visa_amount').val(client.visa_amount);
             $('#visa_amount_currency').val('درهم اماراتي');
             $('#insurance').val(client.insurance);
+            $('#refund').val(client.refund);
             $('#visa_created_date').val(visa_created_date);
             $('#visa_finished_date').val(visa_finished_date);
             if (client.client_enterance_date) {
                 const client_entrance_date = new Date(client.client_enterance_date).toISOString().slice(0, 10);
                 $('#client_enterance_date').val(client_entrance_date);
             }
-            $('#client_passport').attr('src', `${client.client_passport}`);
-            $('#client_photograph').attr('src', `${client.client_photograph}`);
+            $('#refund-button').attr('href', `/h/refund/${client._id}`);
 
         }
     } catch (error) {
