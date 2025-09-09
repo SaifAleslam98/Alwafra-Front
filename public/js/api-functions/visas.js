@@ -15,10 +15,9 @@ $(window).on('load', async function() {
                                 <td id="visa-${visas[listsCounter]._id}">${visas[listsCounter].visa}</td>
                                 <td id="amount-${visas[listsCounter]._id}">${visas[listsCounter].amount}</td>
                                 <td>${visas[listsCounter].currency}</td>
-                                <td><button type="button" class="btn btn-warning openModal" id="${visas[listsCounter]._id}"><i class="pe-7s-refresh-2"></i></button></td>
                                 <td>
-                                    <button type="button" class="btn btn-danger openDeleteModal" id="${visas[listsCounter]._id}"><i class="pe-7s-trash"></i></button>
-
+                                <button type="button" class="btn btn-primary openModal" id="${visas[listsCounter]._id}">تعديل</button>
+                                <button type="button" class="btn btn-danger openDeleteModal" id="${visas[listsCounter]._id}">حذف</button>
                                 </td>
                             </tr>
 
