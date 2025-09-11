@@ -1,0 +1,237 @@
+<div class="content">
+    <div class="container-fluid">
+        <!-- Visas Section -->
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="header">
+                        <b class="h6">أصناف التأشيرات</b>
+                        <div class="form-group">
+                            <label for="filter-button">.</label>
+                            <button type="button" class="btn btn-success btn-fill form-control"
+                                onclick="openModal('newVisaModal')">إضافة صنف جديد</button>
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover ">
+                            <thead>
+                                <th>#</th>
+                                <th>نوع التأشيرة</th>
+                                <th>السعر</th>
+                                <th>العملة</th>
+                                <th></th>
+                            </thead>
+                            <tbody id="visas-table-body">
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Visas Section End -->
+        <!-- Permits Section -->
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="header">
+                        <b class="h6">أصناف الإقامات</b>
+                        <div class="form-group">
+                            <label for="filter-button">.</label>
+                            <button type="button" class="btn btn-success btn-fill form-control"
+                                onclick="openModal('newPermitModal')">إضافة صنف جديد</button>
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover ">
+                            <thead>
+                                <th>#</th>
+                                <th>الإقامة</th>
+                                <th>السعر</th>
+                                <th></th>
+                            </thead>
+                            <tbody id="permit-table-body">
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Permits Section End -->
+
+        <!-- Modals Section -->
+
+        <!-- New Permit Modal -->
+        <div id="newPermitModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">إضافة إقامة جديدة</div>
+                <form>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="visa">نوع الإقامة</label>
+                                <input type="text" id="permit" class="form-control" placeholder="نوع الإقامة">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="price">السعر</label>
+                                <input type="number" id="price" class="form-control" placeholder="السعر">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-success btn-fill" id="save-permit-button">إضافة</button>
+
+                    <button type="button" id="closeModalContentBtn" class="btn btn-danger btn-fill"
+                        onclick="closeModal('newPermitModal');">إغلاق</button>
+                </form>
+
+            </div>
+        </div>
+
+        <!-- Update Permit Modal -->
+        <div id="updatePermitModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">تعديل الإقامة</div>
+                <input type="hidden" name="permit-id" id="permit-id" value="">
+                <form>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="edit-permit">الإقامة</label>
+                                <input type="text" id="edit-permit-type" class="form-control"
+                                    placeholder="نوع التأشيرة">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="edit-price">السعر</label>
+                                <input type="number" id="edit-permit-price" class="form-control" placeholder="السعر">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-warning btn-fill" id="edit-permit-button">تعديل</button>
+
+                    <button type="button" id="closeModalContentBtn" class="btn btn-danger btn-fill"
+                        onclick="closeModal('updatePermitModal');">إغلاق</button>
+                </form>
+            </div>
+        </div>
+        <!-- Delete Visa Modal -->
+        <div id="deletePermitModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">حذف الإقامة</div>
+                <input type="hidden" name="delete-permit-id" id="delete-permit-id">
+
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <label>هل أنت متأكد من حذف هذه الإقامة</label>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-danger btn-fill" id="confirm-delete-permit-button">نعم حذف</button>
+
+                <button type="button" id="closeModalContentBtn" class="btn btn-defalut btn-fill"
+                    onclick="closeModal('deletePermitModal');">إغلاق</button>
+
+            </div>
+        </div>
+        <!-- New Visa Modal -->
+        <div id="newVisaModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">إضافة تأشيرة جديدة</div>
+                <form>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="visa">نوع التأشيرة</label>
+                                <input type="text" id="visa" class="form-control" placeholder="نوع التأشيرة">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="amount">السعر</label>
+                                <input type="number" id="amount" class="form-control" placeholder="السعر">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="currency">العملة</label>
+                                <input type="text" id="currency" class="form-control" value="درهم إماراتي" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success btn-fill" id="save-visa-button">إضافة</button>
+
+                    <button type="button" id="closeModalContentBtn" class="btn btn-danger btn-fill"
+                        onclick="closeModal('newVisaModal');">إغلاق</button>
+                </form>
+
+            </div>
+        </div>
+
+        <!-- Update Visa Modal -->
+        <div id="updateVisaModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">تعديل التأشيرة</div>
+                <input type="hidden" name="visa-id" id="visa-id" value="">
+                <form>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="edit-visa">نوع التأشيرة</label>
+                                <input type="text" id="edit-visa-type" class="form-control" placeholder="نوع التأشيرة">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="edit-amount">السعر</label>
+                                <input type="number" id="edit-visa-amount" class="form-control" placeholder="السعر">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-warning btn-fill" id="edit-visa-button">تعديل</button>
+
+                    <button type="button" id="closeModalContentBtn" class="btn btn-danger btn-fill"
+                        onclick="closeModal('updateVisaModal');">إغلاق</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Delete Visa Modal -->
+        <div id="deleteVisaModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">حذف التأشيرة</div>
+                <input type="hidden" name="delete-visa-id" id="delete-visa-id">
+
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <label>هل أنت متأكد من حذف هذه التأشيرة</label>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-danger btn-fill" id="confirm-delete-visa-button">نعم حذف</button>
+
+                <button type="button" id="closeModalContentBtn" class="btn btn-defalut btn-fill"
+                    onclick="closeModal('deleteVisaModal');">إغلاق</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="/js/api-functions/addings.js"></script>

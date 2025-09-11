@@ -10,6 +10,16 @@ $(window).on('load', async function () {
     }
 });
 
+//View Permit
+$(document).on('click', '#view-permit', async function () {
+    try {
+        let memberId = $(this).attr('data-id');
+        document.location.href = `/permits/${memberId}`;
+    } catch (error) {
+        handleError(error)
+    }
+});
+
 function setData(data) {
     const clients = data
     const tableBody = document.getElementById('permitsTableBody');
@@ -30,14 +40,13 @@ function setData(data) {
             const formattedCreateDate = createDateObj.toLocaleDateString('ar-EG', options);
             const formattedFinishedDate = finishDateObj.toLocaleDateString('ar-EG', options);
             tableRows += `
-                            <tr id="view-client" data-id="${clients[listsCounter]._id}" >
+                            <tr id="view-permit" data-id="${clients[listsCounter]._id}" >
                                 <td>${listsCounter + 1}</td>
                                 <td class="">${clients[listsCounter].passport_no}</td>
                                 <td>${clients[listsCounter].slug_ar}</td>
                                 <td>${clients[listsCounter].permit_number}</td>
                                 <td>${clients[listsCounter].permit_type}</td>
                                 <td>${clients[listsCounter].city}</td>
-                                <td>${clients[listsCounter].status}</td>
                                 <td>${formattedCreateDate}</td>
                                 <td>${formattedFinishedDate}</td>
                             </tr>
@@ -51,8 +60,25 @@ function setData(data) {
     if (clients.length === 0) {
         const row = document.createElement('tr');
         row.innerHTML = `
-                    <td colspan="9" class="text-center">لا توجد إقامات مسجلة</td>
+                    <td colspan="8" class="text-center">لا توجد إقامات مسجلة</td>
                 `;
         tableBody.appendChild(row);
     }
 }
+
+$('#search-button').on('click', async function () {
+    const clientPassport = $('#passport_no').val();
+    clientPassport.toUpperCase()
+    if (!clientPassport) {
+        return alertMsg('الرجاء ادخال رقم جواز العميل', 'warning')
+    }
+    try {
+        const response = await sendGetRequest(`permit?passport_no=${clientPassport}`, {}, authorizedHeader)
+        if (response) {
+            const permits = response.data;
+            setData(permits)
+        }
+    } catch (error) {
+        handleError(error)
+    }
+})

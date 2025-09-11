@@ -4,10 +4,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title" id="">إضافة إقامة</h4>
+                        <h4 class="title" id="client_p"></h4>
                     </div>
                     <div class="content">
-                        <form id="new-client-form" enctype="multipart/form-data">
+                        <form id="client-form">
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
@@ -84,17 +84,23 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label>مبلغ الإقامة</label>
                                         <input type="number" class="form-control" id="perm_amount" disabled>
                                     </div>
                                 </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label>مبلغ التأمين</label>
                                         <input type="number" class="form-control" id="insurance" value="0">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>مبلغ التأمين المسترجع</label>
+                                        <input type="number" class="form-control" id="refund" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -126,16 +132,16 @@
 
                             </div>
 
-
-                            <button type="button" class="btn btn-info btn-fill" id="add-permit"
-                                onclick="">إضافة</button>
+                            <button type="button" class="btn btn-info btn-fill" id="update-permit"
+                                onclick="">تحديث</button>
+                            
                             <div class="clearfix"></div>
                         </form>
                     </div>
                 </div>
             </div>
-
+            
         </div>
     </div>
 </div>
-<script src="/js/api-functions/new-permit.js"></script>
+<script src="/js/api-functions/permit-handle.js"></script>

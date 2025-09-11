@@ -19,7 +19,7 @@ router.get('/', function (req, res, next) {
 /* GET Client. */
 router.get('/:id', function (req, res, next) {
   res.render('clients/view-client', {
-    title: 'العملاء',
+    title: 'تأشيرات العملاء',
     userName: res.locals.userName,
     userLoggedIn: res.locals.userLoggedIn,
   });
