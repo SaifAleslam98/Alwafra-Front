@@ -12,7 +12,7 @@ $('#login-button').on('click', async function () {
             localStorage.setItem('userName', response.user.firstName);
             localStorage.setItem('userRole', response.user.role);
             localStorage.setItem('_id', response.user.id);
-            alertMsg('Login successful', 'success');
+            alertMsg('تم تسجيل الدخول بنجاح', 'success');
             // Redirect to the dashboard or home page
             window.location.href = '/h/';
         }

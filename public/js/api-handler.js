@@ -197,7 +197,7 @@ function filterOption(filterValue, filed) {
 
 function setClientsIntoTable(client, tableId) {
     const clients = client;
-    const clientsDocs = clients.data;
+    const clientsDocs = clients.clientsDocuments;
     const tableBody = document.getElementById(tableId);
     tableBody.innerHTML = ''; // Clear existing rows
     let tableRows = '';

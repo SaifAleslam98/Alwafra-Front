@@ -1,65 +1,145 @@
-.c-passport{
-    width: 90%;
-    border: 2px solid #ddd;
+.c-passport {
+  width: 90%;
+  border: 2px solid #ddd;
 
 }
 
-.c-image{
-    width: 40%;
-    border-radius: 20%;
-    border: 2px solid #ddd;
+.c-image {
+  width: 40%;
+  border-radius: 20%;
+  border: 2px solid #ddd;
 }
 
 .table td {
-font-size: 12px;
+  font-size: 12px;
+}
+
+.table tr {
+  cursor: pointer;
+  ;
 }
 
 /* Modal background */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 /* Modal content */
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    max-width: 500px; /* Max width for larger screens */
-    position: relative;
-    transition: all 0.3s ease-in-out;
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+  max-width: 500px;
+  /* Max width for larger screens */
+  position: relative;
+  transition: all 0.3s ease-in-out;
 }
+
 .modal-content .modal-title {
-    text-align: right;
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
+  text-align: right;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
+
 .modal-content label {
-    text-align: right;
-    font-size: 12px;
+  text-align: right;
+  font-size: 12px;
 
 }
+
 /* Close button */
 .close-button {
-    color: #aaa;
-    float: left;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
+  color: #aaa;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .close-button:hover,
 .close-button:focus {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
+}
+
+.pagination-container,
+.pagination-container .button,
+.pagination-container .links,
+.pagination-container .link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/** * Pagination CSS **/
+.pagination-container {
+  padding: 20px;
+  border-radius: 8px;
+  column-gap: 12px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-container .button {
+  border: none;
+}
+
+.pagination-container .button i {
+  pointer-events: none;
+}
+
+.pagination-container .button:disabled {
+  color: #b3b3b3;
+  pointer-events: none;
+}
+
+.pagination-container .button,
+.pagination-container .link {
+  height: 30px;
+  width: 30px;
+  font-size: 14px;
+  color: #666666;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pagination-container .links {
+  column-gap: 12px;
+}
+
+.pagination-container .link {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.pagination-container .button:hover,
+.pagination-container .link:hover {
+  color: #fff;
+  background: #8a64f2;
+}
+
+.pagination-container .link.active {
+  color: #fff;
+  background: #8a64f2;
 }

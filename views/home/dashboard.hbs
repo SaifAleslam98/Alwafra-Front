@@ -14,52 +14,75 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <div class="card border-info">
-                    <div class="header">
-                        <h4 class="title">مجموع حسابات التأشيرات</h4>
-                        <p class="category"></p>
-                    </div>
-                    <div class="content">
-                        <div class="footer">
-                            <div class="legend">
-                                <i class="fa fa-circle text-info"></i><i id="sumOfVisas"></i> | <i id="clientsMoneySum"></i>
-                            </div>
+            <div class="col-md-3">
+                <div class="pricing-card card-04">
+                    <div class="card-body">
+                        <div class="top-shape"></div>
+                        <div class="card-content">
+                            <ul>
+                                <li class="active">
+                                    <h5 class=""> التأشيرات </h5>
+                                </li>
+                                <li><b id="sumOfVisas"></b> | <b id="clientsMoneySum"></b></li>
+                            </ul>
+
                         </div>
                     </div>
+
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card border-info">
-                    <div class="header">
-                        <h4 class="title">مبالغ التأمينات المدفوعة</h4>
-                        <p class="category"></p>
-                    </div>
-                    <div class="content">
-                        <div class="footer">
-                            <div class="legend">
-                                <i class="fa fa-circle text-danger"></i> <i id="ClientsInsuranceSum"></i>
-                            </div>
+            <div class="col-md-3">
+                <div class="pricing-card card-03">
+                    <div class="card-body">
+                        <div class="top-shape"></div>
+                        <div class="card-content">
+                            <ul>
+                                <li class="active">
+                                    <h5 class=""> الإقامات </h5>
+                                </li>
+                                <li><b id="sumOfPermits"></b> | <b id="permitsMoneySum"></b></li>
+                            </ul>
                         </div>
                     </div>
+
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card border-info">
-                    <div class="header">
-                        <h4 class="title">مبالغ التأمينات المسترجعة</h4>
-                        <p class="category"></p>
-                    </div>
-                    <div class="content">
-                        <div class="footer">
-                            <div class="legend">
-                                <i class="fa fa-circle text-warning"></i> <i id="ClientsRefunSum"></i>
-                            </div>
+            <div class="col-md-3">
+                <div class="pricing-card card-02">
+                    <div class="card-body">
+                        <div class="top-shape"></div>
+                        <div class="card-content">
+                            <ul>
+                                <li class="active">
+                                    <h5 class=""> التأمينات المدفوعة</h5>
+                                </li>
+                                <li><b id="ClientsInsuranceSum"></b></li>
+                            </ul>
                         </div>
                     </div>
+
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="pricing-card card-01">
+                    <div class="card-body">
+                        <div class="top-shape"></div>
+                        <div class="card-content">
+                            <ul>
+                                <li class="active">
+                                    <h5 class=""> التأمينات المسترجعة</h5>
+                                </li>
+                                <li><b id="ClientsRefunSum"></b></li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -80,7 +103,7 @@
                                     </select>
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
                     <div class="content table-responsive table-full-width">
@@ -97,9 +120,18 @@
 
                             </thead>
                             <tbody id="clients-table-body">
-                                
+
                             </tbody>
                         </table>
+                        <div class="pagination-container">
+                            <button class="button prevNext" id="prev" disabled>
+                                <i class="pe-7s-angle-right"></i>
+                            </button>
+                            <div class="links" id="pagination-links">
+
+                            </div>
+                            
+                        </div>
 
                     </div>
                 </div>
