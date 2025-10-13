@@ -9,6 +9,7 @@ $(window).on('load', async function () {
             $('#permitsMoneySum').text(parseFloat(myData.permitsMoneySum) + ' درهم');
             $('#ClientsInsuranceSum').text(myData.clientsInsuranceSum + ' درهم');
             $('#ClientsRefunSum').text(myData.refundSum + ' درهم');
+            setClientsIntoTable({clientsDocuments:[]}, 'daily-alerts-table-body');
             setClientsIntoTable(myData.clients, 'clients-table-body');
             setupPagination(myData.clients, 'pagination-links');
         }

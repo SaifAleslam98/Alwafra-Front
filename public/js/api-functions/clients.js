@@ -24,7 +24,7 @@ $('#search-button').on('click', async function () {
     const clientPassport = $('#passport_no').val();
     clientPassport.toUpperCase()
     if (!clientPassport) {
-        alertMsg('الرجاء ادخال رقم جواز العميل', 'warning')
+        return alertMsg('الرجاء ادخال رقم جواز العميل', 'warning')
     }
     try {
         const response = await sendGetRequest(`client?passport_no=${clientPassport}`, {}, authorizedHeader)
@@ -50,11 +50,14 @@ function setData(data) {
     };
     if (clients.length > 0) {
         for (let listsCounter = 0; listsCounter < clients.length; listsCounter++) {
+            const enteredDate = new Date(clients[listsCounter].createdAt);
+            console.log('Entered Date:', enteredDate); // Log the entered date for debugging
             const createDateObj = new Date(clients[listsCounter].visa_created_date);
             const finishDateObj = new Date(clients[listsCounter].visa_finished_date);
             let formattedClientEnteranceDate;
 
             // Format the date to Arabic format
+            const formattedEnteredDate = enteredDate.toLocaleDateString('ar-EG', options);
             const formattedCreateDate = createDateObj.toLocaleDateString('ar-EG', options);
             const formattedFinishedDate = finishDateObj.toLocaleDateString('ar-EG', options);
             if (clients[listsCounter].client_enterance_date) {
@@ -70,6 +73,7 @@ function setData(data) {
                                 <td>${clients[listsCounter].slug_ar}</td>
                                 <td>${clients[listsCounter].slug_en}</td>
                                 <td>${clients[listsCounter].visa_type}</td>
+                                <td>${formattedEnteredDate}</td>
                                 <td>${formattedCreateDate}</td>
                                 <td>${formattedFinishedDate}</td>
                                 
@@ -85,7 +89,7 @@ function setData(data) {
     if (clients.length === 0) {
         const row = document.createElement('tr');
         row.innerHTML = `
-                    <td colspan="7" class="text-center">لا يوجد عملاء مسجلين</td>
+                    <td colspan="9" class="text-center">لا يوجد عملاء مسجلين</td>
                 `;
         tableBody.appendChild(row);
     }

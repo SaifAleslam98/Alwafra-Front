@@ -15,7 +15,7 @@
   --card-body-bg-color: #fff;
   --text-disabled-color: #b2b2b2;
   --icon-disabled-color: #ff0404;
-  --body-bg-color: #f3fbff;
+  --body-bg-color: #fff;
 
   
 }
@@ -25,7 +25,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: var(--body-bg-color);
+  background-color: var(--body-bg-color);
 }
 
 .main-container {

@@ -7,17 +7,28 @@ $(window).on('load', async function () {
             const tableBody = document.getElementById('visas-table-body');
             tableBody.innerHTML = ''; // Clear existing rows
             let tableRows = '';
+            let category = '';
             if (visas.length > 0) {
                 for (let listsCounter = 0; listsCounter < visas.length; listsCounter++) {
+                    if (visas[listsCounter].category === 'child') {
+                        category = 'أطفال';
+                    } else if (visas[listsCounter].category === 'adult') {
+                        category = 'كبار';
+                    } else {
+                        category = visas[listsCounter].category;
+                    }
                     tableRows += `
                             <tr id="row-${visas[listsCounter]._id}">
                                 <td>${listsCounter + 1}</td>
                                 <td id="visa-${visas[listsCounter]._id}">${visas[listsCounter].visa}</td>
                                 <td id="amount-${visas[listsCounter]._id}">${visas[listsCounter].amount}</td>
                                 <td>${visas[listsCounter].currency}</td>
+                                <td id="category-${visas[listsCounter]._id}">${category}</td>
+                                <td id="agent-${visas[listsCounter]._id}">${visas[listsCounter].agent}</td>
+                                <td id="insurance-${visas[listsCounter]._id}">${visas[listsCounter].insurance}</td>
                                 <td>
-                                <button type="button" class="btn btn-primary openModal" id="${visas[listsCounter]._id}">تعديل</button>
-                                <button type="button" class="btn btn-danger openDeleteModal" id="${visas[listsCounter]._id}">حذف</button>
+                                <button type="button" class="button openModal" id="${visas[listsCounter]._id}">تعديل</button>
+                                <button type="button" class="button openDeleteModal" id="${visas[listsCounter]._id}">حذف</button>
                                 </td>
                             </tr>
 
@@ -49,8 +60,8 @@ $(window).on('load', async function () {
                                 <td id="permit-${permit[listsCounter]._id}">${permit[listsCounter].permit}</td>
                                 <td id="price-${permit[listsCounter]._id}">${permit[listsCounter].price}</td>
                                 <td>
-                                <button type="button" class="btn btn-primary openPermitUpdateModal" id="${permit[listsCounter]._id}">تعديل</button>
-                                <button type="button" class="btn btn-danger openPermitDeleteModal" id="${permit[listsCounter]._id}">حذف</button>
+                                <button type="button" class="button openPermitUpdateModal" id="${permit[listsCounter]._id}">تعديل</button>
+                                <button type="button" class="button openPermitDeleteModal" id="${permit[listsCounter]._id}">حذف</button>
                                 </td>
                             </tr>
 
@@ -78,9 +89,12 @@ $(window).on('load', async function () {
 $('#save-visa-button').on('click', async function () {
     const visaType = $('#visa').val();
     const amount = $('#amount').val();
+    const agent = $('#agent').val();
+    const category = $('#category').val();
+    const insurance = $('#insurance').val();
     const currency = 'AED'; // Assuming currency is fixed as AED
 
-    if (!visaType || !amount || !currency) {
+    if (!visaType || !amount || !currency || !agent || !category || !insurance) {
         alertMsg('الرجاء ملء جميع الحقول.', 'warning');
         return;
     }
@@ -88,7 +102,10 @@ $('#save-visa-button').on('click', async function () {
     const visaData = {
         visa: visaType,
         amount: amount,
-        currency: currency
+        currency: currency,
+        agent: agent,
+        category: category,
+        insurance: insurance
     };
 
     try {
@@ -111,6 +128,21 @@ $(document).on('click', '.openModal', async function () {
     const visaId = $(this).attr('id');
     const visaType = $(`#visa-${visaId}`).text();
     const visaAmount = $(`#amount-${visaId}`).text();
+    const visaCategory = $(`#category-${visaId}`).text();
+    let visaCategoryValue = '';
+    const visaAgent = $(`#agent-${visaId}`).text();
+    const visaInsurance = $(`#insurance-${visaId}`).text();
+    // Set the values in the modal inputs
+    if(visaCategory === 'أطفال'){
+        $('#edit-visa-category').val('child');
+    } else if(visaCategory === 'كبار'){
+        $('#edit-visa-category').val('adult');
+    } else{
+        $('#edit-visa-category').val(visaCategory);
+    }
+    
+    $('#edit-vis-agent').val(visaAgent);
+    $('#edit-visa-insurance').val(visaInsurance);
     document.getElementById("visa-id").value = visaId;
     document.getElementById("edit-visa-type").value = visaType;
     document.getElementById("edit-visa-amount").value = visaAmount;
@@ -122,15 +154,21 @@ $('#edit-visa-button').on('click', async function () {
     const visaId = $('#visa-id').val();
     const updatedVisaType = $('#edit-visa-type').val();
     const updatedAmount = $('#edit-visa-amount').val();
+    const updatedCategory = $('#edit-visa-category').val();
+    const updatedAgent = $('#edit-vis-agent').val();
+    const updatedInsurance = $('#edit-visa-insurance').val();
 
-    if (!updatedVisaType || !updatedAmount) {
+    if (!updatedVisaType || !updatedAmount || !updatedCategory || !updatedAgent || !updatedInsurance) {
         alertMsg('الرجاء ملء جميع الحقول.', 'warning');
         return;
     }
 
     const updatedData = {
         visa: updatedVisaType,
-        amount: updatedAmount
+        amount: updatedAmount,
+        category: updatedCategory,
+        agent: updatedAgent,
+        insurance: updatedInsurance
     };
 
     try {
@@ -140,6 +178,15 @@ $('#edit-visa-button').on('click', async function () {
             // Update the table row with new data
             $(`#visa-${visaId}`).text(updatedVisaType);
             $(`#amount-${visaId}`).text(updatedAmount);
+            if(updatedCategory === 'child'){
+                $(`#category-${visaId}`).text('أطفال');
+            } else if(updatedCategory === 'adult'){
+                $(`#category-${visaId}`).text('كبار');
+            } else{
+                $(`#category-${visaId}`).text(updatedCategory);
+            }
+            $(`#agent-${visaId}`).text(updatedAgent);
+            $(`#insurance-${visaId}`).text(updatedInsurance);
             closeModal('updateVisaModal');
         }
     } catch (error) {

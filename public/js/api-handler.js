@@ -10,10 +10,12 @@ function newAbortSignal(timeoutMs) {
     setTimeout(() => abortController.abort(), timeoutMs || 15000);
     return abortController.signal;
 }
+
 // Header with Token
 const authorizedHeader = {
     'Authorization': `Bearer ${JSON.parse(getCookie('token'))}`
 }
+
 // Header with Token
 const multiPartAuthorizedHeader = {
     'Authorization': `Bearer ${JSON.parse(getCookie('token'))}`,

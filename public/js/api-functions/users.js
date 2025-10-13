@@ -23,7 +23,7 @@ $(window).on('load', async function () {
                                 <td>${users[listsCounter].phone}</td>
                                 <td id="role-${users[listsCounter]._id}">${users[listsCounter].role}</td>
                                 <td id="isActive-${users[listsCounter]._id}" data-id="${users[listsCounter].isActive}">${iconIsActive}</td>
-                                <td><button type="button" class="btn btn-primary openModal" id="${users[listsCounter]._id}">تعديل</button</td>
+                                <td><button type="button" class="button openModal" id="${users[listsCounter]._id}">تعديل</button</td>
                             </tr>
 
                     `;
