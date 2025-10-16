@@ -2,7 +2,7 @@
  * http://localhost:3000/api/v1
  https://alwafra-api.onrender.com
 */
-const Api_URL = 'https://alwafra-api.onrender.com/api/v1';
+const Api_URL = 'http://localhost:3000/api/v1';
 
 //axios.defaults.timeout = 15000;
 function newAbortSignal(timeoutMs) {
@@ -211,11 +211,15 @@ function setClientsIntoTable(client, tableId) {
     };
     if (clientsDocs.length > 0) {
         for (let listsCounter = 0; listsCounter < clientsDocs.length; listsCounter++) {
+
+            // Create date objects
+            const enteredDateObj = new Date(clientsDocs[listsCounter].createdAt);
             const createDateObj = new Date(clientsDocs[listsCounter].visa_created_date);
             const finishDateObj = new Date(clientsDocs[listsCounter].visa_finished_date);
             let formattedClientEnteranceDate;
 
             // Format the date to Arabic format
+            const formattedEnteredDate = enteredDateObj.toLocaleDateString('ar-EG', options);
             const formattedCreateDate = createDateObj.toLocaleDateString('ar-EG', options);
             const formattedFinishedDate = finishDateObj.toLocaleDateString('ar-EG', options);
             if (clientsDocs[listsCounter].client_enterance_date) {
@@ -231,6 +235,7 @@ function setClientsIntoTable(client, tableId) {
                                 <td>${clientsDocs[listsCounter].slug_ar}</td>
                                 <td>${clientsDocs[listsCounter].slug_en}</td>
                                 <td>${clientsDocs[listsCounter].visa_type}</td>
+                                <td>${formattedEnteredDate}</td>
                                 <td>${formattedCreateDate}</td>
                                 <td>${formattedFinishedDate}</td>
                                 
@@ -246,8 +251,9 @@ function setClientsIntoTable(client, tableId) {
     if (clientsDocs.length <= 0) {
         const row = document.createElement('tr');
         row.innerHTML = `
-                    <td colspan="7" class="text-center">لا يوجد عملاء مسجلين</td>
+                    <td colspan="8" class="text-center">لا يوجد بيانات</td>
                 `;
         tableBody.appendChild(row);
     }
 }
+

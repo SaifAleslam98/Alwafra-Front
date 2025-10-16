@@ -51,7 +51,6 @@ function setData(data) {
     if (clients.length > 0) {
         for (let listsCounter = 0; listsCounter < clients.length; listsCounter++) {
             const enteredDate = new Date(clients[listsCounter].createdAt);
-            console.log('Entered Date:', enteredDate); // Log the entered date for debugging
             const createDateObj = new Date(clients[listsCounter].visa_created_date);
             const finishDateObj = new Date(clients[listsCounter].visa_finished_date);
             let formattedClientEnteranceDate;
