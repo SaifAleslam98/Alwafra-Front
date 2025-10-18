@@ -3,7 +3,6 @@ $(window).on('load', async function () {
     try {
         const response = await sendGetRequest(`user/${userId}`, {}, authorizedHeader);
         if (response) {
-            console.log(response);
             const user = response.data;
             document.getElementById('user-Name').value = user.username;
             document.getElementById('userEmail').value = user.email;
@@ -24,8 +23,8 @@ $('#update-profile').on('click', async function () {
     try {
         const response = await sendPatchRequest(`user/${userId}`, updatedData, authorizedHeader);
         if (response) {
-            console.log(response);
             alertMsg('تم تحديث البيانات بنجاح', 'success');
+            localStorage.setItem('userName', response.data.username)
         }
     } catch (error) {
         handleError(error)

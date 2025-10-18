@@ -33,9 +33,9 @@ router.get('/addings', function (req, res, next) {
 });
 
 /* GET Insurances. */
-router.get('/refunds', function (req, res, next) {
-  res.render('home/refunds', {
-    title: 'التأمينات المسترجعة',
+router.get('/financial', function (req, res, next) {
+  res.render('home/financial', {
+    title: 'الحسابات',
     userName: res.locals.userName,
     userLoggedIn: res.locals.userLoggedIn,
   });

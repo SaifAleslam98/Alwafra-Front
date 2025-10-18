@@ -1,10 +1,10 @@
 $(window).on('load', async function () {
     try {
-        const response = await sendGetRequest('refund', {}, authorizedHeader);
+        const response = await sendGetRequest('client', {}, authorizedHeader);
         if (response) {
             
-            const refunds = response.data;
-            const tableBody = document.getElementById('insuranceTableBody');
+            const clients = response.data;
+            const tableBody = document.getElementById('visaTableBody');
             tableBody.innerHTML = ''; // Clear existing rows
             let tableRows = '';
             const options = {
@@ -13,32 +13,39 @@ $(window).on('load', async function () {
                 month: 'long',
                 day: 'numeric'
             };
-            if (refunds.length > 0) {
-                for (let listsCounter = 0; listsCounter < refunds.length; listsCounter++) {
-                    const createDateObj = new Date(refunds[listsCounter].createdAt);
-                    const formattedCreateDate = createDateObj.toLocaleDateString('ar-EG', options);
-                    const updatedDateObj = new Date(refunds[listsCounter].updatedAt);
-                    const formattedUpdatedDate = updatedDateObj.toLocaleDateString('ar-EG', options);
+            if (clients.length > 0) {
+                for (let listsCounter = 0; listsCounter < clients.length; listsCounter++) {
+                    let paymentStatus='';
+                    if(clients[listsCounter].paymentStatus == 'pending'){
+                        paymentStatus = '<div class="process-status pending">pending</div>'
+                    }else if(clients[listsCounter].paymentStatus == 'partial'){
+                        paymentStatus = '<div class="process-status partial">partial</div>'
+                    }else if(clients[listsCounter].paymentStatus == 'completed'){
+                        paymentStatus = '<div class="process-status completed">completed</div>'
+                    }
+                    const visaCreatedDateObj = new Date(clients[listsCounter].visa_created_date);
+                    const formattedVisaCreatedDate = visaCreatedDateObj.toLocaleDateString('ar-EG', options);
                     tableRows += `
                                 <tr>
                                     <td>${listsCounter + 1}</td>
-                                    <td id="passport-${refunds[listsCounter]._id}">${refunds[listsCounter].client_visa_id.passport_no}</td>
-                                    <td>${refunds[listsCounter].client_visa_id.slug_ar}</td>
-                                    <td id="amount-${refunds[listsCounter]._id}">${refunds[listsCounter].refundable_amount}</td>
-                                    <td>${formattedCreateDate}</td>
-                                    <td id="updatedDate-${refunds[listsCounter]._id}">${formattedUpdatedDate}</td>
+                                    <td id="serial-${clients[listsCounter]._id}">${clients[listsCounter].serialNumber}</td>
+                                    <td>${clients[listsCounter].slug_ar}</td>
+                                    <td>${clients[listsCounter].visa_type}</td>
+                                    <td>${formattedVisaCreatedDate}</td>
+                                    <td>${formatNumber(clients[listsCounter].total_amount)}</td>
+                                    <td>${formatNumber(clients[listsCounter].paidAmount)}</td>
+                                    <td>${paymentStatus}</td>
                                     <td>
-                                        <button class="btn btn-primary btn-sm openModal" id="${refunds[listsCounter]._id}" data-id="${refunds[listsCounter].client_visa_id._id}">تعديل</button>
-                                        
+                                        <button class="button openModal" id="${clients[listsCounter]._id}">سداد</button>
                                     </td>
                                 </tr>
                             `;
                 }
-            } $('#insuranceTableBody').append(tableRows);
-            if (refunds.length === 0) {
+            } $('#visaTableBody').append(tableRows);
+            if (clients.length === 0) {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td colspan="7" class="text-center">لا يوجد مبالغ تأمينات مسترجعة الى الآن.</td>
+                    <td colspan="9" class="text-center">لا يوجد تأشيرات مدخلة الى الآن.</td>
                 `;
                 tableBody.appendChild(row);
             }
@@ -51,8 +58,8 @@ $(window).on('load', async function () {
 });
 
 $(document).on('click', '.openModal', async function () {
-    openModal('updateRefundModal');
-    const refundId = $(this).attr('id');
+    openModal('newPaymentModal');
+    const clientId = $(this).attr('id');
     const client_visa_id = $(this).attr('data-id')
     const amount = $(`#amount-${refundId}`).text();
     const passport = $(`#passport-${refundId}`).text();

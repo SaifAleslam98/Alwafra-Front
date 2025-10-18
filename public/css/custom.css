@@ -1,5 +1,7 @@
 /* buttons */
-
+.side-color{
+  background-color: #ddd;
+}
 
 
 .inputs {
@@ -216,4 +218,22 @@
  .pagination-container .link.active {
    color: #fff;
    background: #8a64f2;
+ }
+
+ .process-status{
+  text-align: center;
+  padding: 2px;
+  border-radius: 9px;
+  color:#fff;
+ }
+ .pending{
+  background: linear-gradient(45deg,#FF5370,#FF5370);
+ }
+
+ .parial{
+  background: linear-gradient(45deg,#FFB64D,#FFB64D);
+ }
+
+ .completed{
+  background: linear-gradient(45deg,#2ed8b6,#2ed8b6);
  }

@@ -4,12 +4,12 @@ $(window).on('load', async function () {
         if (response) {
             const myData = response
             $('#sumOfVisas').text(myData.clients.result + ' تأشيرة');
-            $('#clientsMoneySum').text(parseFloat(myData.clientsMoneySum) + ' درهم');
+            $('#clientsMoneySum').text(formatNumber(myData.clientsMoneySum));
             $('#sumOfPermits').text(myData.permits.result + ' إقامة');
-            $('#permitsMoneySum').text(parseFloat(myData.permitsMoneySum) + ' درهم');
-            $('#ClientsInsuranceSum').text(myData.clientsInsuranceSum + ' درهم');
-            $('#ClientsRefunSum').text(myData.refundSum + ' درهم');
-            setClientsIntoTable({clientsDocuments:[]}, 'daily-alerts-table-body');
+            $('#permitsMoneySum').text(formatNumber(myData.permitsMoneySum));
+            $('#ClientsInsuranceSum').text(formatNumber(myData.clientsInsuranceSum));
+            $('#ClientsRefunSum').text(formatNumber(myData.refundSum));
+            setClientsIntoTable({ clientsDocuments: [] }, 'daily-alerts-table-body');
             setClientsIntoTable(myData.clients, 'clients-table-body');
             setupPagination(myData.clients, 'pagination-links');
         }
@@ -23,16 +23,20 @@ $(window).on('load', async function () {
 $('#filterOption').on('change', async function () {
     $('#sumOfVisas').text('');
     $('#clientsMoneySum').text('');
+    $('#permitsMoneySum').text('');
+    $('#sumOfPermits').text('');
     $('#ClientsInsuranceSum').text('');
     $('#ClientsRefunSum').text('');
     const filterObj = filterOption($(this).val(), 'createdAt');
     try {
         const response = await sendGetRequest(`d${filterObj}`, {}, authorizedHeader);
-        const clients = response.clients;
-        $('#sumOfVisas').text(clients.result + ' تأشيرة');
-        $('#clientsMoneySum').text(parseFloat(clients.clientsMoneySum) + ' درهم');
-        $('#ClientsInsuranceSum').text(clients.clientsInsuranceSum + ' درهم');
-        $('#ClientsRefunSum').text(clients.refundSum + ' درهم');
+        const myData = response;
+        $('#sumOfVisas').text(myData.clients.result + ' تأشيرة');
+        $('#clientsMoneySum').text(formatNumber(myData.clientsMoneySum));
+        $('#sumOfPermits').text(myData.permits.result + ' إقامة');
+        $('#permitsMoneySum').text(formatNumber(myData.permitsMoneySum));
+        $('#ClientsInsuranceSum').text(formatNumber(myData.clientsInsuranceSum));
+        $('#ClientsRefunSum').text(formatNumber(myData.refundSum));
     } catch (error) {
         handleError(error)
     }
