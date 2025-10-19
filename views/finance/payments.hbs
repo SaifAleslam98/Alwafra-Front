@@ -1,0 +1,62 @@
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="card">
+                <div class="header">
+                    <b class="h6 f-right">سجل الإيرادات</b>
+                    <a href="/finance" class="button f-left">رجوع</a>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class=" ">
+                        <thead>
+                            <th>#</th>
+                            <th>الرقم التسلسلي</th>
+                            <th>اسم العميل</th>
+                            <th>نوع الخدمة</th>
+                            <th>المبلغ المدفوع</th>
+                            <th>التاريخ</th>
+                            <th></th>
+                        </thead>
+                        <tbody id="paymentTableBody">
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Update Refund Modal -->
+        <div id="updateRefundModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-title">تعديل عملية الإسترجاع</div>
+                <input type="hidden" name="refund-id" id="refund-id" value="">
+                <input type="hidden" name="refund-id" id="client-visa-id" value="">
+                <form>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="edit-visa">رقم الجواز</label>
+                                <input type="text" id="clientPassportNo" class="form-control" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="form-group">
+                                <label for="edit-amount">المبلغ المسترجع</label>
+                                <input type="number" id="edit-refund-amount" class="form-control" placeholder="المبلغ">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-warning btn-fill" id="edit-refund-button">تعديل</button>
+
+                    <button type="button" id="closeModalContentBtn" class="btn btn-danger btn-fill"
+                        onclick="closeModal('updateRefundModal');">إغلاق</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/finance/payments.js"></script>

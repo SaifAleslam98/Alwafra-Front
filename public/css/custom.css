@@ -230,10 +230,23 @@
   background: linear-gradient(45deg,#FF5370,#FF5370);
  }
 
- .parial{
+ .partial{
   background: linear-gradient(45deg,#FFB64D,#FFB64D);
  }
 
  .completed{
   background: linear-gradient(45deg,#2ed8b6,#2ed8b6);
+ }
+
+ .link{
+  font-size: 10px;
+  font-weight: bold;
+  color: #fefefe;
+  border: 1px solid #fefefe;
+  padding: 5px;
+  border-radius: 2px;
+ }
+ .link:hover{
+  background: #fefefe;
+  color:#A5A5B6 ;
  }
