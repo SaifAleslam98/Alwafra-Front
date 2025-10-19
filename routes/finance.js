@@ -24,5 +24,15 @@ router.get('/payments', function (req, res, next) {
   });
 });
 
+/* GET Deposits. */
+router.get('/deposit', function (req, res, next) {
+  res.render('finance/deposit', {
+    title: 'التأمينات',
+    userName: res.locals.userName,
+    userLoggedIn: res.locals.userLoggedIn,
+  });
+});
+
+
 
 module.exports = router;

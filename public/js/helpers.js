@@ -167,20 +167,20 @@ $('#warranty').on('change', async function () {
         if (!visaId) {
             alertMsg('الرجاء اختيار نوع التأشيرة أولاً', 'warning');
             $(this).val('');
-            $('#insurance').val(0);
+            $('#deposit').val(0);
             return;
         }
         try {
             const response = await sendGetRequest(`visa/${visaId}`, {}, authorizedHeader);
             if (response) {
                 const visaDetails = response.data;
-                $('#insurance').val(visaDetails.insurance);
+                $('#deposit').val(visaDetails.supplier.insuranceAmount);
             }
         } catch (error) {
             handleError(error);
         }
     } else {
-        $('#insurance').val(0);
+        $('#deposit').val(0);
     }
 });
 
@@ -192,4 +192,62 @@ function formatNumber(number) {
         maximumFractionDigits: 2, // Ensures no more than two decimal places
     });
     return formatter.format(number);
+}
+
+// Function to set deposit data
+function depositDataTable(data) {
+    const clients = data
+    const tableBody = document.getElementById('depositTableBody');
+    tableBody.innerHTML = ''; // Clear existing rows
+    let tableRows = '';
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+    if (clients.length > 0) {
+        for (let listsCounter = 0; listsCounter < clients.length; listsCounter++) {
+            let refundStatus = '';
+            let payButton = '';
+            // Ckeck the payment status
+            if (clients[listsCounter].paidDeposit <= 0 && clients[listsCounter].refundStatus === 'pending') {
+                refundStatus = '<div class="process-status pending">لم يسدد</div>'
+                payButton = `<button class="button openModal" id="${clients[listsCounter]._id}">سداد</button>`
+            } else if (clients[listsCounter].refundStatus === 'not_required') {
+                refundStatus = '<div class="process-status purple">غير مطلوب</div>'
+                
+            } else if (clients[listsCounter].paidDeposit < clients[listsCounter].deposit) {
+                refundStatus = '<div class="process-status partial">جزئي</div>'
+                payButton = `<button class="button openModal" id="${clients[listsCounter]._id}">سداد</button>`
+            } else if (clients[listsCounter].paidDeposit = clients[listsCounter].deposit) {
+                refundStatus = '<div class="process-status completed">تم السداد</div>'
+            }
+            const visaCreatedDateObj = new Date(clients[listsCounter].visa_created_date);
+            const formattedVisaCreatedDate = visaCreatedDateObj.toLocaleDateString('ar-EG', options);
+            tableRows += `
+                                <tr>
+                                    <td>${listsCounter + 1}</td>
+                                    <td id="serial-${clients[listsCounter]._id}">${clients[listsCounter].serialNumber}</td>
+                                    <td>${clients[listsCounter].slug_ar}</td>
+                                    <td>${clients[listsCounter].visa_type}</td>
+                                    <td>${formattedVisaCreatedDate}</td>
+                                    <td id="dueAmount-${clients[listsCounter]._id}">${formatNumber(clients[listsCounter].deposit)}</td>
+                                    <td id="paid-${clients[listsCounter]._id}">${formatNumber(clients[listsCounter].paidDeposit)}</td>
+                                    <td id="refundedAmount-${clients[listsCounter]._id}">${formatNumber(clients[listsCounter].refundedAmount)}</td>
+                                    <td>${refundStatus}</td>
+                                    <td>
+                                        ${payButton}
+                                    </td>
+                                </tr>
+                            `;
+        }
+    } $('#depositTableBody').append(tableRows);
+    if (clients.length === 0) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+                    <td colspan="10" class="text-center">لا يوجد بيانات.</td>
+                `;
+        tableBody.appendChild(row);
+    }
 }

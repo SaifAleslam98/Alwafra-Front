@@ -1,52 +1,11 @@
 <div class="content">
     <div class="row">
-        <div class="col-md-3 col-xl-3">
-            <div class="card bg-c-blue order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">الإيرادات المدفوعة</h6>
-                    <h3 class="text-right"><i class="fa fa-cash-register f-left"></i><span>486</span></h3>
-                    <p class="m-b-0"><a href="/finance/payments" class="link">عرض الجميع</a></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-xl-3">
-            <div class="card bg-c-green order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">إجمالي المنصرفات</h6>
-                    <h3 class="text-right"><i class="fa fa-money-bill-transfer f-left"></i><span>486</span></h3>
-                    <p class="m-b-0"><a href="/finance/payments" class="link">عرض الجميع</a></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-xl-3">
-            <div class="card bg-c-yellow order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">إجمالي التأمينات</h6>
-                    <h3 class="text-right"><i class="fa fa-refresh f-left"></i><span>486</span></h3>
-                    <p class="m-b-0"><a href="/finance/deposit" class="link">عرض الجميع</a></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-xl-3">
-            <div class="card bg-c-pink order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">إجمالي التأمينات المستردة</h6>
-                    <h3 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h3>
-                    <p class="m-b-0"><a href="/finance/deposit" class="link">عرض الجميع</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Visas Table -->
-    <div class="row">
         <div class="col-md-12">
 
             <div class="card">
                 <div class="header">
-                    <b class="h6 f-right">سجل التأشيرات</b>
+                    <b class="h6 f-right">سجل التأمينات</b>
+                    <a href="/finance" class="button f-left">رجوع</a>
                 </div>
                 <div class="content table-responsive table-full-width">
                     <table class=" ">
@@ -56,13 +15,13 @@
                             <th>اسم العميل</th>
                             <th>التأشيرة</th>
                             <th>تاريخ الإصدار</th>
-                            <th>المبلغ المطلوب</th>
-                            <th>المبلغ المدفوع</th>
-                            <th>المبلغ المتبقي</th>
-                            <th>حالة الدفع</th>
+                            <th>التأمين</th>
+                            <th>المستلم</th>
+                            <th>المسترد</th>
+                            <th>حالة السداد</th>
                             <th></th>
                         </thead>
-                        <tbody id="visaTableBody">
+                        <tbody id="depositTableBody">
 
                         </tbody>
                     </table>
@@ -71,7 +30,6 @@
             </div>
         </div>
     </div>
-
     <!-- New Payment Modal -->
     <div id="newPaymentModal" class="modal">
         <div class="modal-content">
@@ -90,7 +48,7 @@
                     <div class="col-md-12 ">
                         <div class="form-group">
                             <label for="serviceType">نوع الخدمة</label>
-                            <input type="text" id="serviceType" class="inputs" value="تأشيرة" disabled>
+                            <input type="text" id="serviceType" class="inputs" value="تأمين" disabled>
                         </div>
                     </div>
                 </div>
@@ -118,7 +76,7 @@
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-success btn-fill" id="visa-payment">سداد</button>
+                <button type="button" class="btn btn-success btn-fill" id="deposit-payment">سداد</button>
 
                 <button type="button" id="closeModalContentBtn" class="btn btn-danger btn-fill"
                     onclick="closeModal('newPaymentModal');">إغلاق</button>
@@ -128,4 +86,4 @@
     </div>
 </div>
 
-<script src="/js/finance/finance.js"></script>
+<script src="/js/finance/deposit.js"></script>
