@@ -33,14 +33,6 @@ router.get('/addings', function (req, res, next) {
 });
 
 
-/* GET Insurances. */
-router.get('/refund/:id', function (req, res, next) {
-  res.render('home/refund-back', {
-    title: 'إسترجاع التأمين',
-    userName: res.locals.userName,
-    userLoggedIn: res.locals.userLoggedIn,
-  });
-});
 
 /* GET Reports. */
 router.get('/reports', function (req, res, next) {

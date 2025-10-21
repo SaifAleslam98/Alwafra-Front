@@ -251,3 +251,89 @@ function depositDataTable(data) {
         tableBody.appendChild(row);
     }
 }
+
+// Function to set refunds data
+function refundDataTable(data) {
+    const clients = data
+    const tableBody = document.getElementById('refundsTableBody');
+    tableBody.innerHTML = ''; // Clear existing rows
+    let tableRows = '';
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+    if (clients.length > 0) {
+        for (let listsCounter = 0; listsCounter < clients.length; listsCounter++) {
+            
+            const visaCreatedDateObj = new Date(clients[listsCounter].createdAt);
+            const formattedVisaCreatedDate = visaCreatedDateObj.toLocaleDateString('ar-EG', options);
+            tableRows += `
+                                <tr>
+                                    <td>${listsCounter + 1}</td>
+                                    <td id="serial-${clients[listsCounter]._id}">${clients[listsCounter].serialNumber}</td>
+                                    <td>${clients[listsCounter].serviceId.slug_ar}</td>
+                                    <td>${clients[listsCounter].serviceId.visa_type}</td>
+                                    <td>${formattedVisaCreatedDate}</td>
+                                    <td id="dueAmount-${clients[listsCounter]._id}">${formatNumber(clients[listsCounter].serviceId.deposit)}</td>
+                                    <td id="paid-${clients[listsCounter]._id}">${formatNumber(clients[listsCounter].serviceId.paidDeposit)}</td>
+                                    <td id="refundedAmount-${clients[listsCounter]._id}">${formatNumber(clients[listsCounter].serviceId.refundedAmount)}</td>
+                                    
+                                </tr>
+                            `;
+        }
+    } $('#refundsTableBody').append(tableRows);
+    if (clients.length === 0) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+                    <td colspan="10" class="text-center">لا يوجد بيانات.</td>
+                `;
+        tableBody.appendChild(row);
+    }
+}
+
+// Function to set deposit back data
+function depositBackDataTable(data) {
+    const clients = data
+    const tableBody = document.getElementById('depositBackTableBody');
+    tableBody.innerHTML = ''; // Clear existing rows
+    let tableRows = '';
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+    if (clients.length > 0) {
+        for (let listsCounter = 0; listsCounter < clients.length; listsCounter++) {
+            let depositStatus='';
+
+            const visaCreatedDateObj = new Date(clients[listsCounter].visa_created_date);
+            const formattedVisaCreatedDate = visaCreatedDateObj.toLocaleDateString('ar-EG', options);
+            tableRows += `
+                                <tr>
+                                    <td>${listsCounter + 1}</td>
+                                    <td id="serial-${clients[listsCounter]._id}">${clients[listsCounter].serialNumber}</td>
+                                    <td id="name-${clients[listsCounter]._id}">${clients[listsCounter].slug_ar}</td>
+                                    <td>${clients[listsCounter].visa_type}</td>
+                                    <td>${formattedVisaCreatedDate}</td>
+                                    <td id="dueAmount-${clients[listsCounter]._id}">${formatNumber(clients[listsCounter].deposit)}</td>
+                                    <td id="paid-${clients[listsCounter]._id}">${formatNumber(clients[listsCounter].paidDeposit)}</td>
+                                    <td id="refundedAmount-${clients[listsCounter]._id}">${formatNumber(clients[listsCounter].refundedAmount)}</td>
+                                    <td><div class="process-status pending">لم يسترد</div></td>
+                                    <td>
+                                        <button class="button openModal" id="${clients[listsCounter]._id}">إسترداد</button>
+                                    </td>
+                                </tr>
+                            `;
+        }
+    } $('#depositBackTableBody').append(tableRows);
+    if (clients.length === 0) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+                    <td colspan="10" class="text-center">لا يوجد بيانات.</td>
+                `;
+        tableBody.appendChild(row);
+    }
+}

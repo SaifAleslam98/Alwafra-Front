@@ -1,0 +1,97 @@
+<div class="content">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="form-group">
+                <button class="btn btn-primary btn-fill form-control" onclick="openModal('newExpenseModal')">منصرف جديد</button>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <a href="/finance/depositBack" class="btn btn-primary btn-fill form-control">إسترجاع مبلغ تأمين</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="card">
+                <div class="header">
+                    <b class="h6 f-right">سجل المنصرفات</b>
+                    <a href="/finance" class="button f-left">رجوع</a>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class=" ">
+                        <thead>
+                            <th>#</th>
+                            <th>العنوان</th>
+                            <th>النوع</th>
+                            <th>المبلغ</th>
+                            <th>التاريخ</th>
+                            <th>ملاحظات</th>
+                        </thead>
+                        <tbody id="expenseTableBody">
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- New Expense Modal -->
+    <div id="newExpenseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-title">تسجيل منصرف جديد</div>
+            <form>
+
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="form-group">
+                            <label for="serviceType">العنوان</label>
+                            <input type="text" id="title" class="inputs" placeholder="عنوان المنصرف">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="form-group">
+                            <label for="category">التصنيف</label>
+                            <select name="category" id="category" class="inputs">
+                                <option value="">--</option>
+                                <option value="Travel">سفر</option>
+                                <option value="Food">طعام</option>
+                                <option value="Office">مكتبي</option>
+                                <option value="Supplies">مستلزمات</option>
+                                <option value="Other">غير ذلك</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="form-group">
+                            <label for="amount">المبلغ</label>
+                            <input type="text" id="amount" class="inputs" placeholder="المبلغ">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <div class="form-group">
+                            <label for="comment">الملاحظات</label>
+                            <textarea class="inputs" id="comment"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-success btn-fill" id="expense-save">تسجيل</button>
+
+                <button type="button" id="closeModalContentBtn" class="btn btn-danger btn-fill"
+                    onclick="closeModal('newExpenseModal');">إغلاق</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+<script src="/js/finance/expense.js"></script>

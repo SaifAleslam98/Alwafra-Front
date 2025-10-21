@@ -1,13 +1,19 @@
 $(window).on('load', async function () {
     try {
+        const financeResponse = await sendGetRequest('d/finance', {}, authorizedHeader);
+        if(financeResponse){
+            const finance = financeResponse
+            $('#paymentMoney').text(formatNumber(finance.payment.paymentSum));
+            $('#expenseMoney').text(formatNumber(finance.expense.expenseSum));
+            $('#depositMoney').text(formatNumber(finance.deposit.depositSum));
+            $('#refundMoney').text(formatNumber(finance.refund.refundSum));
+        }
         const response = await sendGetRequest('client', {}, authorizedHeader);
         if (response) {
             const clients = response.data;
             visaDataTable(clients)
         }
-
     } catch (error) {
-        console.log(error)
         alertMsg('حدث خطأ أثناء جلب بيانات التأمينات.', 'danger');
     }
 });
