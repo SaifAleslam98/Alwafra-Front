@@ -1,0 +1,353 @@
+/* buttons */
+.side-color {
+  background-color: #ddd;
+}
+
+
+.inputs {
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 2px;
+  width: 100%;
+  font-size: 13px;
+  background-color: #fff;
+}
+
+.button {
+  border: none;
+  border-radius: 2px;
+  font-size: 13px;
+  color: white;
+  background-color: #A5A5B6;
+  padding: 5px 8px;
+}
+
+.c-passport {
+  width: 90%;
+  border: 2px solid #ddd;
+
+}
+
+.c-image {
+  width: 40%;
+  border-radius: 20%;
+  border: 2px solid #ddd;
+}
+
+/* Table styles */
+
+table {
+  width: 100%;
+  display: table;
+  border-spacing: 2px;
+  text-align: right;
+  caption-side: bottom;
+  --color: #d0d0f5;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  text-indent: 0;
+}
+
+tr {
+  border-bottom: #d0d0f5 1px solid;
+}
+
+tbody tr:hover {
+  cursor: pointer;
+  background-color: #ddd;
+}
+
+th,
+td {
+  border: 1px solid lightgrey;
+  padding: 0.25rem 0.75rem;
+}
+
+th,
+caption {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: start;
+}
+
+thead th:not(:first-child),
+td {
+  font-size: 12px;
+  text-align: start;
+  color: #5E5E73;
+}
+
+thead {
+  border-block-end: lightgrey 2px solid;
+  background: whitesmoke;
+  color: #A5A5B6;
+
+}
+
+tfoot {
+  border-block: 2px solid;
+  background: whitesmoke;
+}
+
+th:first-child {
+  position: sticky;
+  inset-inline-start: 0;
+
+}
+
+/* Modal background */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
+  max-width: 500px;
+  /* Max width for larger screens */
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-content .modal-title {
+  text-align: right;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.modal-content label {
+  text-align: right;
+  font-size: 12px;
+
+}
+
+/* Close button */
+.close-button {
+  color: #aaa;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.pagination-container,
+.pagination-container .button,
+.pagination-container .links,
+.pagination-container .link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/** * Pagination CSS **/
+.pagination-container {
+  padding: 20px;
+  border-radius: 8px;
+  column-gap: 12px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-container .button {
+  border: none;
+}
+
+.pagination-container .button i {
+  pointer-events: none;
+}
+
+.pagination-container .button:disabled {
+  color: #b3b3b3;
+  pointer-events: none;
+}
+
+.pagination-container .button,
+.pagination-container .link {
+  height: 30px;
+  width: 30px;
+  font-size: 14px;
+  color: #666666;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pagination-container .links {
+  column-gap: 12px;
+}
+
+.pagination-container .link {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.pagination-container .button:hover,
+.pagination-container .link:hover {
+  color: #fff;
+  background: #8a64f2;
+}
+
+.pagination-container .link.active {
+  color: #fff;
+  background: #8a64f2;
+}
+
+.process-status {
+  text-align: center;
+  padding: 2px;
+  border-radius: 9px;
+  color: #fff;
+}
+
+.pending {
+  background: linear-gradient(45deg, #FF5370, #FF5370);
+}
+
+.partial {
+  background: linear-gradient(45deg, #FFB64D, #FFB64D);
+}
+
+.completed {
+  background: linear-gradient(45deg, #2ed8b6, #2ed8b6);
+}
+
+.purple {
+  background: linear-gradient(45deg, #8b2ed8, #8b2ed8);
+}
+
+.link {
+  font-size: 10px;
+  font-weight: bold;
+  color: #fefefe;
+  border: 1px solid #fefefe;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.link:hover {
+  background: #fefefe;
+  color: #A5A5B6;
+}
+
+/* Invoice */
+.invoice-box {
+    background: #fefefe;
+  direction: rtl;
+  max-width: 800px;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  line-height: 24px;
+  font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+  color: #555;
+}
+
+.invoice-img{
+  float: left;
+  width: 50%;
+
+}
+.invoice-box table td .text-center{
+  text-align: center;
+  justify-content: end;
+}
+
+.invoice-box table {
+  border: none;
+  width: 100%;
+  line-height: inherit;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.invoice-box table td {
+  padding: 5px;
+  vertical-align: top;
+}
+
+
+
+.invoice-box table tr.top table td {
+  padding-bottom: 10px;
+  border: none;
+  font-size: 13px;
+}
+
+.invoice-box table tr.top table td.title {
+  font-size: 45px;
+  line-height: 45px;
+  color: #333;
+  
+}
+
+.invoice-box table tr.information table td {
+  border: none;
+  font-size: 13px;
+}
+
+.invoice-box table tr.heading td {
+  background: #eee;
+  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+}
+
+.invoice-box table tr.details td {
+  padding-bottom: 20px;
+}
+
+.invoice-box table tr.item td {
+  border-bottom: 1px solid #eee;
+}
+
+.invoice-box table tr.item.last td {
+  border-bottom: none;
+}
+
+.invoice-box table tr.total td:nth-child(2) {
+  border-top: 2px solid #eee;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .invoice-box table tr.top table td {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  .invoice-box table tr.information table td {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+}
