@@ -1,0 +1,103 @@
+<div class="sidebar" data-color="purple" data-image="/img/desktop-wallpaper-travel-agency.png">
+
+    <!--
+
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
+
+    -->
+
+    <div class="sidebar-wrapper">
+        <div class="logo text-center">
+
+            <img src="/img/logo.png" style="width: 80%;">
+
+        </div>
+        {{#if userLoggedIn}}
+        <ul class="nav">
+            <li class="" id="h">
+                <a href="/h">
+                    <i class="pe-7s-graph"></i>
+                    <p>لوحة التحكم</p>
+                </a>
+            </li>
+            <li id="profile">
+                <a href="/h/profile">
+                    <i class="pe-7s-user"></i>
+                    <p>الملف الشخصي</p>
+                </a>
+            </li>
+            <li id="addings">
+                <a href="/h/addings">
+                    <i class="pe-7s-note2"></i>
+                    <p>الإضافات</p>
+                </a>
+            </li>
+            <li id="clients">
+                <a href="/clients">
+                    <i class="pe-7s-plane"></i>
+                    <p>تأشيرات العملاء</p>
+                </a>
+            </li>
+            <li id="permits">
+                <a href="/permits">
+                    <i class="pe-7s-id"></i>
+                    <p>إقامات العملاء</p>
+                </a>
+            </li>
+            <li id="finance">
+                <a href="/finance">
+                    <i class="pe-7s-cash"></i>
+                    <p>الحسابات</p>
+                </a>
+            </li>
+            <li id="reports">
+                <a href="/h/reports">
+                    <i class="pe-7s-news-paper"></i>
+                    <p>التقارير</p>
+                </a>
+            </li>
+            <li id="users">
+                <a href="/users">
+                    <i class="pe-7s-network"></i>
+                    <p>المستخدمين</p>
+                </a>
+            </li>
+            <li class="active-pro">
+                <a href="/logout">
+                    <i class="pe-7s-angle-left-circle"></i>
+                    <p>تسجيل الخروج</p>
+                </a>
+            </li>
+        </ul>
+        {{else}}
+        <ul class="nav">
+            <li class="active">
+                <a href="/">
+                    <i class="pe-7s-angle-right-circle"></i>
+                    <p>تسجيل الدخول</p>
+                </a>
+            </li>
+        </ul>
+        {{/if}}
+    </div>
+</div>
+<script>
+    const urlString = document.URL; // Get the current URL
+
+    // Create a new URL object
+    const url = new URL(urlString);
+
+    // Get the pathname: "/about/products.html"
+    const pathname = url.pathname;
+
+    // Split the pathname by "/" and get the last part
+    // This gives you "products.html"
+    const pathParts = pathname.split('/');
+
+    if (pathParts.length < 3) {
+        $(`#${pathParts[1]}`).addClass('active');
+    } else {
+        $(`#${pathParts[2]}`).addClass('active');
+    }
+</script>

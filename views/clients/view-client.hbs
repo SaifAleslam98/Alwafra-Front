@@ -1,0 +1,205 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title" id="">تعديل تأشيرة عميل</h4>
+                    </div>
+                    <div class="content">
+                        <form id="new-client-form" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>رقم الجواز</label>
+                                        <input type="text" class="inputs" id="passport_no">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>تاريخ إصدار الجواز</label>
+                                        <input type="date" class="inputs" id="passport_created_date">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>تاريخ إنتهاء الجواز</label>
+                                        <input type="date" class="inputs" id="passport_finished_date">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>الإسم الأول بالعربي</label>
+                                        <input type="text" class="inputs" id="ar_first_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>الإسم الثاني بالعربي</label>
+                                        <input type="text" class="inputs" id="ar_second_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>الإسم الثالث بالعربي</label>
+                                        <input type="text" class="inputs" id="ar_third_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>الإسم الرابع بالعربي</label>
+                                        <input type="text" class="inputs" id="ar_fourth_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>تاريخ الميلاد</label>
+                                        <input type="date" class="inputs" id="birthDate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>الإسم الأول بالإنجليزي</label>
+                                        <input type="text" class="inputs" id="en_first_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>الإسم الثاني بالإنجليزي</label>
+                                        <input type="text" class="inputs" id="en_second_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>الإسم الثالث بالإنجليزي</label>
+                                        <input type="text" class="inputs" id="en_third_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>الإسم الرابع بالإنجليزي</label>
+                                        <input type="text" class="inputs" id="en_fourth_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label>الجنس</label>
+                                        <select name="gender" id="gender" class="inputs">
+                                            <option value="">--</option>
+                                            <option value="male">ذكر</option>
+                                            <option value="female">أنثى</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>رقم الهاتف</label>
+                                        <input type="text" class="inputs" id="phone">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>نوع التأشيرة</label>
+                                        <select name="visasOptions" id="visasOptions" class="inputs">
+                                            <option value="">--</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label>الفئة</label>
+                                        <select name="inputs" id="category" disabled>
+                                            
+                                            <option value="child">أطفال</option>
+                                            <option value="adult">كبار</option>
+                                        </select>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label>مبلغ التأشيرة</label>
+                                        <input type="number" class="inputs" id="visa_amount" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label>مبلغ التأمين</label>
+                                        <input type="number" class="inputs" id="deposit" value="0" min="0" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label>تخفيض</label>
+                                        <input type="number" class="inputs" id="discount" value="0" min="0">
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label>صافي السعر</label>
+                                        <input type="number" class="inputs" id="total" value="0" min="0" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>العملة</label>
+                                        <input type="text" class="inputs" id="visa_amount_currency"
+                                            placeholder="درهم إماراتي" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>الضمان</label>
+                                        <select name="warranty" id="warranty" class="inputs">
+                                            <option value="">--</option>
+                                            <option value="true">مع الضمان</option>
+                                            <option value="false">بدون ضمان</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>تاريخ إصدار التأشيرة</label>
+                                        <input type="date" class="inputs" id="visa_created_date">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>تاريخ إنتهاء التأشيرة</label>
+                                        <input type="date" class="inputs" id="visa_finished_date">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>زمن دخول العميل</label>
+                                        <input type="date" class="inputs" id="client_enterance_date">
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                            <button type="button" class="btn btn-info btn-fill rounded-1" id="update-client"
+                                onclick="">تعديل</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="/js/api-functions/client-handle.js"></script>

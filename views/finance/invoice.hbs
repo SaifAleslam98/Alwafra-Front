@@ -1,0 +1,64 @@
+<div class="invoice-box">
+    <input type="hidden" id="linkId" value="{{data.id}}">
+    <table>
+        <tr class="top">
+            <td colspan="3">
+                <table>
+                    <tr style="border-bottom: none;">
+                        <td colspan="2" class="text-center">
+                            <img src="/img/logo2.jpg" style="width: 15%; max-width: 300px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center" colspan="3">
+                            <b>فاتورة سداد {{data.invoiceType}}</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>الرقم التسلسلي : {{data.serial}}</b>
+                        </td>
+                        <td class="f-left">
+                            <b>التاريخ : {{data.date}}</b>
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: none;">
+                        <td>
+                            <b>الإسم</b> : {{data.name}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr class="heading">
+            <td>#</td>
+            <td>البيان</td>
+            <td>المبلغ</td>
+        </tr>
+
+        <tr class="item">
+            <td>1</td>
+            <td>{{data.content}}</td>
+            <td>{{data.price}}</td>
+        </tr>
+
+        
+
+        <tr class="total">
+            <td></td>
+
+            <td>الإجمالي</td>
+            <td>{{data.total}}</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    const linkId = $('#linkId').val();
+   $(window).on('load', async function(){
+    setTimeout(() =>{
+        window.location.href = `/finance/invoice/${linkId}/pdf`;
+    }, 5000)
+   })
+</script>

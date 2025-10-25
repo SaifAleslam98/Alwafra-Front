@@ -1,0 +1,141 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title" id="">إضافة إقامة</h4>
+                    </div>
+                    <div class="content">
+                        <form id="new-client-form" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>الإسم الأول بالعربي</label>
+                                        <input type="text" class="form-control" id="ar_first_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>الإسم الثاني بالعربي</label>
+                                        <input type="text" class="form-control" id="ar_second_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>الإسم الثالث بالعربي</label>
+                                        <input type="text" class="form-control" id="ar_third_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>الإسم الرابع بالعربي</label>
+                                        <input type="text" class="form-control" id="ar_fourth_name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>الإسم الأول بالإنجليزي</label>
+                                        <input type="text" class="form-control" id="en_first_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>الإسم الثاني بالإنجليزي</label>
+                                        <input type="text" class="form-control" id="en_second_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>الإسم الثالث بالإنجليزي</label>
+                                        <input type="text" class="form-control" id="en_third_name">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>الإسم الرابع بالإنجليزي</label>
+                                        <input type="text" class="form-control" id="en_fourth_name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>نوع الإقامة</label>
+                                        <select name="permitOptions" id="permitOptions" class="form-control">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>الإمارة</label>
+                                        <select name="cityOptions" id="cityOptions" class="form-control">
+                                            <option value="">بدون</option>
+                                            <option value="أبوظبي">أبوظبي</option>
+                                            <option value="دبي">دبي</option>
+                                            <option value="الشارقة">الشارقة</option>
+                                            <option value="عجمان">عجمان</option>
+                                            <option value="رأس الخيمة">رأس الخيمة</option>
+                                            <option value="الفجيرة">الفجيرة</option>
+                                            <option value="أم القيوين">أم القيوين</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>مبلغ الإقامة</label>
+                                        <input type="number" class="form-control" id="perm_amount" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>مبلغ التأمين</label>
+                                        <input type="number" class="form-control" id="insurance" value="0">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>رقم الجواز</label>
+                                        <input type="text" class="form-control" id="passport_no">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>رقم معرف الإقامة</label>
+                                        <input type="text" class="form-control" id="permit_number">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>تاريخ إصدار الإقامة</label>
+                                        <input type="date" class="form-control" id="issue_date">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>تاريخ إنتهاء الإقامة</label>
+                                        <input type="date" class="form-control" id="expiry_date">
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <button type="button" class="btn btn-info btn-fill" id="add-permit"
+                                onclick="">إضافة</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="/js/api-functions/new-permit.js"></script>

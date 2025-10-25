@@ -1,0 +1,151 @@
+<div class="content">
+    <div class="container-fluid">
+                <div class="row mb-0">
+            <div class="col-md-4">
+                <div class="form-group ">
+                    <label class="fw-l" for="filterOption">فلترة حسب الفترات:</label>
+                    <select name="filterOption" id="filterOption" class="inputs">
+                        <option value="all">الجميع</option>
+                        <option value="today">اليوم</option>
+                        <option value="last7days">آخر 7 أيام</option>
+                        <option value="last30days">آخر 30 يومًا</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-xl-3">
+                <div class="card bg-c-blue order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">التأشيرات</h6>
+                        <h3 class="text-right"><i class="fa fa-cash-register f-left"></i><span
+                                id="clientsMoneySum"></span></h3>
+                        <p class="m-b-0" id="sumOfVisas"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xl-3">
+                <div class="card bg-c-green order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">الإقامات</h6>
+                        <h3 class="text-right"><i class="fa fa-money-bill-transfer f-left"></i><span
+                                id="permitsMoneySum"></span></h3>
+                        <p class="m-b-0" id="sumOfPermits"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xl-3">
+                <div class="card bg-c-yellow order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">التأمينات</h6>
+                        <h3 class="text-right"><i class="fa fa-refresh f-left"></i><span
+                                id="ClientsInsuranceSum"></span></h3>
+                        <p class="m-b-0">التأمينات المدفوعة</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xl-3">
+                <div class="card bg-c-pink order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">المسترجعات</h6>
+                        <h3 class="text-right"><i class="fa fa-credit-card f-left"></i><span
+                                id="ClientsRefunSum"></span></h3>
+                        <p class="m-b-0">التأمينات المسترجعة</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h5 class="title pb-3">تنبيهات اليوم</h5>
+                        <p class=" text-danger">هذه التأشيرات ستنتهي خلال فترة أقصاها ثلاثة أيام</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-body">
+                            <div class="content table-responsive table-full-width">
+                                <table class=" ">
+                                    <thead>
+                                        <th>#</th>
+                                        <th>رقم الجواز</th>
+                                        <th>الاسم بالعربي</th>
+                                        <th>الإسم بالإنجليزي</th>
+                                        <th>نوع التأشيرة</th>
+                                        <th>تاريخ الإصدار</th>
+                                        <th>تاريخ الإنتهاء</th>
+                                        <th>ICP</th>
+
+                                    </thead>
+                                    <tbody id="daily-alerts-table-body">
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">تصنيف التأشيرات</h4>
+                        <div class="row">
+                            <div class="col-md-3 ">
+                                <div class="form-group">
+                                    <label for="visaFilterOption">التصنيف</label>
+                                    <select name="visaFilterOption" id="visaFilterOption" class="form-control">
+                                        <option value="today">المستخرجة خلال اليوم</option>
+                                        <option value="last7days">المستخرجة خلال الاسبوع</option>
+                                        <option value="last30days">المستخرجة خلال الشهر</option>
+                                        <option value="finishing">على وشك الإنتهاء</option>
+                                        <option value="refunding">تعديل وضع ومستحق إرجاع تأمين</option>
+                                        <option value="finished">منتهية الصلاحية (مخالفين)</option>
+                                        <option value="out">المغادرين</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class=" ">
+                            <thead>
+                                <th>#</th>
+                                <th>رقم الجواز</th>
+                                <th>الاسم بالعربي</th>
+                                <th>الإسم بالإنجليزي</th>
+                                <th>نوع التأشيرة</th>
+                                <th>تاريخ الإدخال</th>
+                                <th>تاريخ الإصدار</th>
+                                <th>تاريخ الإنتهاء</th>
+                                <th>ICP</th>
+
+                            </thead>
+                            <tbody id="clients-table-body">
+
+                            </tbody>
+                        </table>
+                        <div class="pagination-container">
+                            <button class="button prevNext" id="prev" disabled>
+                                <i class="pe-7s-angle-right"></i>
+                            </button>
+                            <div class="links" id="pagination-links">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/api-functions/dashboard.js"></script>
